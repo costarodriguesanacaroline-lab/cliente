@@ -61,7 +61,7 @@ def excluir_cliente(request, id):
     return redirect('novo_cliente')
 
 def login_usuario(request):
-    template_name= 'login_html'
+    template_name = 'login.html'
     if request.method =='POST':
         form = AuthenticationForm(request, data=request.POST)
         if form.is_valid():
@@ -76,5 +76,5 @@ def login_usuario(request):
             return HttpResponse(request, "Usuário ou senha Inválidos.")
     else:
         form = AuthenticationForm()
-    
-    context = {'form': form}                                                                                      
+    context = {'form': form}  
+    return render (request, template_name, context)                                                                                    
